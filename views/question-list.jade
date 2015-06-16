@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    each val in questions
+        div.row.question-list-question
+            div.small-12.columns
+                i.fa.fa-question-circle
+                span #{val.question}
+

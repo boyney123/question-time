@@ -4,12 +4,21 @@ block content
     div.row
         div.small-12.columns
 
-            p Please tell us how you are feeling in one word:
+            p Tell us how you are feeling?
 
             form(action="/submit/mood", method="POST")
 
-                label Feeling:
-                input(type='text', value='word')
+                label Happy
+                    input(type='radio', name='feeling', value='happy')
+
+                label Meh
+                    input(type='radio', name='feeling', value='meh')
+
+                label Sad
+                    input(type='radio', name='feeling', value='sad')
+
+                label Sum up your mood in one mood:
+                    input(type='text', name='word')
 
                 input.button.expand.success(type='submit', value='Submit')
 

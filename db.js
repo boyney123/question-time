@@ -24,3 +24,4 @@ module.exports = {
 	questions: collection(),
 	moods: collection()
 };
+
