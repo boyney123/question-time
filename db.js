@@ -28,7 +28,7 @@ if (process.env.NODE_ENV == 'production') {
 	
 	module.exports = {
 		questions: collection(),
-		moods: collection()
+		words: collection()
 	};
 	
 } else {
