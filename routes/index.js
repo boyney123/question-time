@@ -49,4 +49,17 @@ router.get('/admin/questions', function(req, res, next){
         });
 });
 
+
+router.get('/moods', function(req, res, next){
+
+    dataHelper
+        .getAllMoods()
+        .then(function(data){
+            res.send(200, data);
+        })
+        .catch(function(err){
+            res.render('error');
+        });
+});
+
 module.exports = router;

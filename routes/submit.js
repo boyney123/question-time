@@ -18,20 +18,36 @@ router.post('/question', function(req, res, next) {
   
 });
 
+function validateWords(words){
+
+    var allWords = [];
+
+    words = words.split(' ');
+
+    //Do we need to do any validation?
+
+    for(var i = 0; i < words.length; i++){
+        allWords.push({
+            word: words[i]
+        })
+    }
+
+    return allWords;
+
+}
+
 
 router.post('/mood', function(req, res, next) {
-  
-  var mood = {
-    feeling: req.body.feeling,
-    word: req.body.word
-  };
-  
-  db.moods.insert(mood, function(err, result) {
-    if (err) {
-      res.render('error');
-    } else {
-        res.redirect('/');
-    }
-  });
+
+    var words = validateWords(req.body.words);
+
+    db.moods.insert(words, function(err, result) {
+        if (err) {
+            console.log(err);
+            res.render('error');
+        } else {
+            res.redirect('/');
+        }
+    });
   
 });
