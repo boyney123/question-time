@@ -1,8 +1,44 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+    background:#195C99;
+    color:white;
 }
 
-a {
-  color: #00B7FF;
+.content{
+    padding:10px 0;
+}
+
+p, label{
+    font-size: 0.8em;
+    color: white;
+}
+
+
+.fa-question-circle, .fa-child{
+    font-size: 2em;
+}
+
+
+.fa-arrow-left{
+    margin: 0 0 0 10px;
+    color: white;
+}
+
+textarea{
+    height: 150px;
+}
+
+.title{
+    margin:0 15px !important;
+}
+
+.block{
+    display:block;
+}
+
+.mt5{
+    margin-top:5px;
+}
+
+.mt10{
+    margin-top:10px;
 }

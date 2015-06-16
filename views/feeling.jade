@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    div.row
+        div.small-12.columns
+
+            p Please tell us how you are feeling in one word:
+
+            form(action="/submit/mood", method="POST")
+
+                label Feeling:
+                input(type='text', value='word')
+
+                input.button.expand.success(type='submit', value='Submit')
+
+

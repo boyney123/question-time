@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    div.row
+        div.small-12.columns
+
+            p What would you like to do?
+
+            a(href='/question')
+                button.expand.success
+                    i.fa.fa-question-circle
+                    span.block.mt5 Ask a question
+            a(href='/feel')
+                button.expand.success
+                    i.fa.fa-child
+                    span.block.mt5 Tell us how you feel
+
+

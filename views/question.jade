@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    div.row
+        div.small-12.columns
+
+            p Please enter the question you would like to ask and hit submit.
+
+            form(action="/submit/question", method="POST")
+                label Question:
+                textarea(value='question')
+
+                input.button.expand.success(type='submit', value='Submit')
+
+
