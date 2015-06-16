@@ -7,7 +7,7 @@ module.exports.getAllQuestions = function(){
 
     db.questions.find(function(err, result) {
         if (err) {
-            d.reject(err)
+            d.reject(err);
         } else {
             d.resolve(result);
         }
@@ -16,24 +16,42 @@ module.exports.getAllQuestions = function(){
     return d.promise;
 }
 
-module.exports.getAllMoods = function(){
+module.exports.getAllWords = function(){
 
     var d = when.defer();
 
-    db.moods.find(function(err, result) {
+    db.words.find(function(err, result) {
         if (err) {
-            d.reject(err)
+            d.reject(err);
         } else {
-
-            var allWords = [];
-
-            for(var i = 0; i < result.length; i++){
-                allWords.push(result[i].word);
-            }
-
-            d.resolve(allWords);
+            
+            d.resolve(result.map(function(word) {
+                return word.word;
+            }));
+            
         }
     });
+  
+    // db.words.aggregate([
+    //     {
+    //         $group: {
+    //             _id: "$word",
+    //             count: {
+    //                 $sum: 1
+    //             }
+    //         }
+    //     },
+    //     {
+    //         $project: {
+    //             _id: 0,
+    //             word: "$_id",
+    //             count: 1
+    //         }
+    //     }
+    // ], function(err, words) {
+    //      if(err) return d.reject(err);
+    //      d.resolve(words);
+    // });
 
     return d.promise;
 }

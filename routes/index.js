@@ -54,10 +54,10 @@ router.get('/admin/questions', function(req, res, next){
 });
 
 
-router.get('/moods', function(req, res, next){
+router.get('/words', function(req, res, next){
 
     dataHelper
-        .getAllMoods()
+        .getAllWords()
         .then(function(data){
             res.send(200, data);
         })
