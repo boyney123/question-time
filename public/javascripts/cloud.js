@@ -17,7 +17,7 @@ $(function() {
     function getData(success){
 
         $.ajax({
-            url: "/moods",
+            url: "/moods/",
             type:'GET',
             success: function(words){
                 serverData = words;

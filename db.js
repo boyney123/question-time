@@ -7,7 +7,16 @@ var collection = function() {
 
 	return {
 		insert: function(data, callback) {
-			records.push(data);
+
+            //quick check if data is an array
+            if(data.length){
+                for(var i = 0; i < data.length; i++){
+                    records.push(data[i]);
+                }
+            }
+            else{
+                records.push(data);
+            }
 			callback(null, data);
 		},
 		find: function() {
