@@ -10,9 +10,9 @@ router.post('/question', function(req, res, next) {
   
   db.questions.insert(question, function(err, result) {
     if (err) {
-      res.sendStatus(500);
+        res.render('error');
     } else {
-      res.sendStatus(200);
+      res.redirect('/');
     }
   });
   
@@ -28,9 +28,9 @@ router.post('/mood', function(req, res, next) {
   
   db.moods.insert(mood, function(err, result) {
     if (err) {
-      res.sendStatus(500);
+      res.render('error');
     } else {
-      res.sendStatus(200);
+        res.redirect('/');
     }
   });
   

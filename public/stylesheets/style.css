@@ -42,3 +42,13 @@ textarea{
 .mt10{
     margin-top:10px;
 }
+
+.question-list-question{
+    border-bottom: 1px solid #9A9BA0;
+    padding: 10px 0;
+    font-size: 0.8em;
+}
+
+.question-list-question span{
+    margin-left: 10px;
+}
