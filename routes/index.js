@@ -7,6 +7,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/cloud', function(req, res, next) {
+    res.render('wordcloud', { title: 'Express' });
+});
+
 router.get('/question', function(req, res, next) {
     res.render('question', {
         title: 'Express',
