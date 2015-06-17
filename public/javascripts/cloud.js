@@ -19,81 +19,129 @@ $(function() {
         $.ajax({
             url: "/words/",
             type:'GET',
-            success: function(words){
-                serverData = words;
-                success(words);
-            }
+            success: success
         });
 
     };
-
-    function renderNewWords(words){
-
-        d3.layout.cloud()
-            .size([width, height])
-            .words(words.map(function(d) {
-                    return {text: d, size: 10 + Math.random() * 90};
+    
+    setTimeout(function() {
+        
+        getData(function(words) {
+            
+            // Oooo these linear scale functions are nice :D
+            var wordScale = d3.scale.linear().domain([0,20]).range([10,160]);
+            var wordRotate = d3.scale.linear().domain([0,1]).range([-20,20]);
+            
+            d3.layout.cloud()
+                .size([width, height])
+                .words(words.map(function(word) {
+                    return {
+                        text: word.word,
+                        count: word.count
+                    };
                 }))
-            .padding(1)
-            .rotate(function() { return ~~(Math.random() * 2) * 90; })
-            .font("Impact")
-            .fontSize(function(d) { return d.size; })
-            .on("end", draw)
-            .start();
+                .font("Impact")
+                .rotate(function() { return wordRotate(Math.random()); })
+                .fontSize(function(d) { return wordScale(d.count); })
+                .on("end", draw)
+                .start();
+                
+        });
+        
+    },400);
+    
+    
+    
+    function draw(words) {
 
-        function draw(words) {
-
-            _words = words;
-
-
-            d3.select("g")
-                .attr("transform", "translate(" + width/2 + "," + height/2 + ")")
-                .selectAll("text")
+        d3.select("g")
+            .attr("transform", "translate(" + width/2 + "," + height/2 + ")")
+            .selectAll("text")
                 .data(words)
                 .enter().append("text")
-                .style("font-size", function(d) { return d.size + "px"; })
-                .style("font-family", "Impact")
-                .style("fill", function(d, i) { return fill(i); })
-                .attr("text-anchor", "middle")
-                .text(function(d) { return d.text; })
-                .style('opacity', 0)
-                .transition()
-                .duration(500)
-                .attr("transform", function(d) {
-                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-                })
-                .style('opacity', 1)
+                    .style("font-size", function(d) { return d.size + "px"; })
+                    .style("font-family", "Impact")
+                   // .style("fill", function(d, i) { return fill(i); })
+                    .attr("text-anchor", "middle")
+                    .text(function(d) { return d.text; })
+                    .attr("transform", function(d) {
+                        return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                    })
+                    .style('opacity', 0)
+                    .transition()
+                    .duration(1500)
+                    
+                .style('opacity', 1);
 
-        }
+    };
 
-    }
+    // function renderNewWords(words){
 
-    getData(function(data){
-        renderNewWords(data);
-    });
+    //     d3.layout.cloud()
+    //         .size([width, height])
+    //         .words(words.map(function(d) {
+    //                 return {text: d, size: 10 + Math.random() * 90};
+    //             }))
+    //         .padding(1)
+    //         .rotate(function() { return ~~(Math.random() * 2) * 90; })
+    //         .font("Impact")
+    //         .fontSize(function(d) { return d.size; })
+    //         .on("end", draw)
+    //         .start();
 
+    //     function draw(words) {
 
-    setInterval(function(){
-
-
-        d3.selectAll("text")
-            .transition()
-            .duration(500)
-            .attr("transform", function(d) {
-                return "translate(" + [0, 0] + ")rotate(" + 0 + ")";
-            })
-            .style("opacity", 0)
-            .remove();
-
-        setTimeout(function(){
-            location.reload();
-        }, 600)
+    //         _words = words;
 
 
-        //renderNewWords(serverData);
+    //         d3.select("g")
+    //             .attr("transform", "translate(" + width/2 + "," + height/2 + ")")
+    //             .selectAll("text")
+    //             .data(words)
+    //             .enter().append("text")
+    //             .style("font-size", function(d) { return d.size + "px"; })
+    //             .style("font-family", "Impact")
+    //             .style("fill", function(d, i) { return fill(i); })
+    //             .attr("text-anchor", "middle")
+    //             .text(function(d) { return d.text; })
+    //             .style('opacity', 0)
+    //             .transition()
+    //             .duration(500)
+    //             .attr("transform", function(d) {
+    //                 return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+    //             })
+    //             .style('opacity', 1)
+
+    //     }
+
+    // }
+
+    // getData(function(data){
+    //     renderNewWords(data);
+    // });
 
 
-    }, 5000);
+    // setInterval(function(){
+
+
+    //     d3.selectAll("text")
+    //         .transition()
+    //         .duration(500)
+    //         .attr("transform", function(d) {
+    //             return "translate(" + [0, 0] + ")rotate(" + 0 + ")";
+    //         })
+    //         .style("opacity", 0)
+    //         .remove();
+
+    //     setTimeout(function(){
+    //         location.reload();
+    //     }, 600)
+
+
+    //     //renderNewWords(serverData);
+
+
+    // }, 5000);
 
 
 });
