@@ -9,6 +9,10 @@ body{
     padding:10px 0;
 }
 
+.content img {
+    margin-top:-10px;
+}
+
 p, label{
     font-size: 0.8em;
     color: black;
@@ -59,10 +63,30 @@ textarea{
     margin-left: 10px;
 }
 
-.main-heading{
-    font-size: 1.1em;
+.heading {
     color:#828282;
     margin-bottom:0;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+.main-heading {
+    font-size:1.3em;
+}
+
+.sub-heading {
+    font-size:1em;
+}
+
+.line1 {
+    color:#dc3c3c;
+    font-size:1.7em;
+    line-height:1em;
+}
+
+.line2 {
+    font-size:3.4em;
+    line-height:0.8em;
 }
 
 .bake-green{
