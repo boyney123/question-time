@@ -4,7 +4,7 @@ var dataHelper = require('../helpers/data');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.connection.remoteAddress);
+  console.log(req.header('x-forwarded-for'),'-',req.connection.remoteAddress);
   res.render('index', { title: 'Express' });
 });
 
