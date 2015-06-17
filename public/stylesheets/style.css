@@ -1,7 +1,9 @@
 body{
-    background:#195C99;
+    /*background:#E8CB9F;*/
     color:white;
 }
+
+
 
 .content{
     padding:10px 0;
@@ -9,7 +11,7 @@ body{
 
 p, label{
     font-size: 0.8em;
-    color: white;
+    color: black;
 }
 
 
@@ -43,6 +45,10 @@ textarea{
     margin-top:10px;
 }
 
+.mb10{
+    margin-bottom: 10px !important;
+}
+
 .question-list-question{
     border-bottom: 1px solid #9A9BA0;
     padding: 10px 0;
@@ -51,4 +57,30 @@ textarea{
 
 .question-list-question span{
     margin-left: 10px;
+}
+
+.main-heading{
+    font-size: 1.1em;
+    color:#828282;
+    margin-bottom:0;
+}
+
+.bake-green{
+    background:#7bb091;
+}
+
+.bake-green:hover, .bake-green:focus {
+    background-color: #567d66;
+}
+
+.bake-blue{
+    background:#9fd2cd;
+}
+
+.bake-blue:hover, .bake-blue:focus {
+    background-color: #74d2d2;
+}
+
+.bunting{
+    background: url('http://www.thesailorboystosyth.co.uk/communities/5/004/012/747/795//images/4611995197.png') repeat-x;
 }
