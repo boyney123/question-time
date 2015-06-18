@@ -1,7 +1,14 @@
 body{
     /*background:#E8CB9F;*/
     color:white;
+    font-family: 'Montserrat', sans-serif;
 }
+
+button {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
 
 
 
@@ -11,6 +18,7 @@ body{
 
 .content img {
     margin-top:-10px;
+    margin-bottom:20px;
 }
 
 p, label{
@@ -68,6 +76,7 @@ textarea{
     margin-bottom:0;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
+    font-weight:bold;
 }
 
 .main-heading {
@@ -110,5 +119,5 @@ textarea{
 }
 
 .top-bar{
-    background:#cfb48c;
+    background:#9e9c9c;
 }
