@@ -1,6 +1,7 @@
 $(function() {
 
-    var fill = d3.scale.ctm();
+    var fill = d3.scale.category20c();
+    //var fill = d3.scale.ctm();
 
     var height = $(document).height();
     var width = $(document).width();
@@ -61,7 +62,7 @@ $(function() {
                 .enter().append("text")
                     .style("font-size", function(d) { return d.size + "px"; })
                     .style("font-family", "Impact")
-                   // .style("fill", function(d, i) { return fill(i); })
+                    .style("fill", function(d, i) { return fill(i); })
                     .attr("text-anchor", "middle")
                     .text(function(d) { return d.text; })
                     .attr("transform", function(d) {
