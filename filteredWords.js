@@ -33,6 +33,8 @@ module.exports = [
     'nevertheless',
     'yet',
     'alternatively',
+    'i',
+    'feel',
 
     //Sorry for these words, but have to filter them :O
     'fuck',
