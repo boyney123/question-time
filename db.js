@@ -23,6 +23,27 @@ if (process.env.NODE_ENV == 'production') {
 				} else if(arguments.length == 2) {
 					arguments[1](null, records);
 				}
+			},
+			aggregate: function(p1, p2, callback) {
+				
+				var r = {};
+				
+				records.forEach(function(word) {
+					if (r[word.word] == undefined) {
+						r[word.word] = 0;
+					}
+					r[word.word]++;
+				});
+				
+				var words = Object.keys(r).map(function(key) {
+					return {
+						word: key,
+						count: r[key]
+					};
+				});
+				
+				callback(null,words);
+				
 			}
 		};
 	};
