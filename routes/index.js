@@ -35,6 +35,7 @@ router.get('/admin/questions', function(req, res, next){
 
             for(var i = 0; i < data.length; i++){
                 if(data[i].question){
+                    console.log(data[i])
                     questions.push(data[i]);
                 }
             }
@@ -52,6 +53,34 @@ router.get('/admin/questions', function(req, res, next){
             res.render('error');
         });
 });
+
+router.get('/admin/words', function(req, res, next){
+
+    dataHelper
+        .getAllWords()
+        .then(function(data){
+
+            var words = [];
+
+            for(var i = 0; i < data.length; i++){
+                if(data[i].word){
+                    words.push(data[i]);
+                }
+            }
+
+            res.render('word-list', {
+                title: 'Express',
+                enabelBackToHome:true,
+                words:words
+            });
+
+        })
+        .catch(function(err){
+            console.log(err)
+            res.render('error');
+        });
+});
+
 
 
 router.get('/words', function(req, res, next){

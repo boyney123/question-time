@@ -19,10 +19,14 @@ router.post('/question', function(req, res, next) {
 });
 
 function validateWords(words){
-    
+
+    var filteredWords = require('../filteredWords');
+
     return words
         .split(' ')
-        //Do we need to do any validation?
+        .filter(function(word){
+            return filteredWords.indexOf(word) == -1;
+        })
         .filter(function(word){ return word.length; })
         .map(function(word) { return { word: word }; });
     

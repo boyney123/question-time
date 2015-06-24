@@ -122,27 +122,19 @@ $(function() {
     // });
 
 
-    // setInterval(function(){
+     setTimeout(function(){
 
+         d3.selectAll("text")
+             .transition()
+             .duration(500)
+             .style('opacity', 0)
 
-    //     d3.selectAll("text")
-    //         .transition()
-    //         .duration(500)
-    //         .attr("transform", function(d) {
-    //             return "translate(" + [0, 0] + ")rotate(" + 0 + ")";
-    //         })
-    //         .style("opacity", 0)
-    //         .remove();
+         setTimeout(function(){
+             location.reload();
+         }, 600);
 
-    //     setTimeout(function(){
-    //         location.reload();
-    //     }, 600)
+     }, 5000)
 
-
-    //     //renderNewWords(serverData);
-
-
-    // }, 5000);
 
 
 });

@@ -1,11 +1,11 @@
 extends layout
 
 block content
-    each val in questions
+    each val in words
         div.row.question-list-question
             div.small-12.columns
-                form(action="/question/delete/#{val._id}", method="POST")
+                form(action="/word/delete/#{word}", method="POST")
                     i.fa.fa-question-circle
-                    span #{val.question}
+                    span #{val.word}
                     input(type='submit', value='X')
 

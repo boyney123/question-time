@@ -65,6 +65,11 @@ textarea{
     border-bottom: 1px solid #9A9BA0;
     padding: 10px 0;
     font-size: 0.8em;
+    color:black;
+}
+
+.question-list-question input{
+    float:right;
 }
 
 .question-list-question span{
