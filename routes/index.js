@@ -95,4 +95,35 @@ router.get('/words', function(req, res, next){
         });
 });
 
+
+router.post('/question/delete/:id', function(req, res, next){
+
+    var questionId = req.param("id");
+
+    dataHelper
+        .deleteQuestion(questionId)
+        .then(function(data){
+            res.redirect('/admin/questions');
+        })
+        .catch(function(err){
+            res.render('error');
+        });
+});
+
+router.post('/word/delete/:word', function(req, res, next){
+
+    console.log("hERE")
+
+    var word = req.param("word");
+
+    dataHelper
+        .deleteWord(word)
+        .then(function(){
+            res.redirect('/admin/words');
+        })
+        .catch(function(err){
+            res.render('error');
+        });
+});
+
 module.exports = router;

@@ -1,5 +1,6 @@
 var db = require('../db');
 var when = require('when');
+var mongojs = require('mongojs');
 
 module.exports.getAllQuestions = function(){
 
@@ -44,4 +45,30 @@ module.exports.getAllWords = function(){
 
     });
     
+};
+
+module.exports.deleteQuestion = function(_id){
+
+    return when.promise(function(resolve, reject) {
+
+        db.questions.remove({_id: mongojs.ObjectId(_id)}, function(err){
+            if(err) return reject(err);
+            resolve();
+        })
+
+    });
+
+}
+
+module.exports.deleteWord = function(word){
+
+    return when.promise(function(resolve, reject) {
+
+        db.words.remove({word: word}, function(err){
+            if(err) return reject(err);
+            resolve();
+        })
+
+    });
+
 }

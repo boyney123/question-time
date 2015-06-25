@@ -4,7 +4,7 @@ block content
     each val in words
         div.row.question-list-question
             div.small-12.columns
-                form(action="/word/delete/#{word}", method="POST")
+                form(action="/word/delete/#{val.word}", method="POST")
                     i.fa.fa-question-circle
                     span #{val.word}
                     input(type='submit', value='X')
