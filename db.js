@@ -59,7 +59,7 @@ if (process.env.NODE_ENV != 'production') {
 	
 	// local env uses mongo.
 	var mongojs = require('mongojs');
-	module.exports = mongojs('mongodb://bakeoff:'+process.ENV.MONGO_PASS+'@ds037551.mongolab.com:37551/heroku_6jtjjpvv', ['questions','words']);
+	module.exports = mongojs('mongodb://bakeoff:'+process.env.MONGO_PASS+'@ds037551.mongolab.com:37551/heroku_6jtjjpvv', ['questions','words']);
 	//module.exports = mongojs('question-time', ['questions', 'words']);
 	
 }
