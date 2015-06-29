@@ -43,5 +43,22 @@ module.exports = [
     'crap',
     'tits',
     'cock',
-    'pussy'
+    'pussy',
+    'bollocks',
+    'piss',
+    'pissing',
+    'fucking',
+    'shitting'
+    'twat',
+    'bastard',
+    'arse',
+    'ass',
+    'arsed',
+    'crapping',
+    'pussies',
+    'shits',
+    'craps',
+    'pisses',
+    'shite',
+    'cocks'
 ];
