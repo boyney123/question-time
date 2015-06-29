@@ -48,7 +48,7 @@ module.exports = [
     'piss',
     'pissing',
     'fucking',
-    'shitting'
+    'shitting',
     'twat',
     'bastard',
     'arse',
