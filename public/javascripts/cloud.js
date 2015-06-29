@@ -30,7 +30,7 @@ $(function() {
         getData(function(words) {
             
             // Oooo these linear scale functions are nice :D
-            var wordScale = d3.scale.linear().domain([0,6]).range([30,120]);
+            var wordScale = d3.scale.linear().domain([0,10]).range([20,100]);
             var wordRotate = d3.scale.linear().domain([0,1]).range([-20,20]);
             
             d3.layout.cloud()
@@ -60,7 +60,7 @@ $(function() {
             .selectAll("text")
                 .data(words)
                 .enter().append("text")
-                    .style("font-size", function(d) { return d.size + "px"; })
+                    .style("font-size", function(d) { return d.size + "%"; })
                     .style("font-family", "Impact")
                     .style("fill", function(d, i) { return fill(i); })
                     .attr("text-anchor", "middle")
