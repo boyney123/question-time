@@ -39,7 +39,6 @@ module.exports.getAllWords = function(){
             }
         , function(err, words) {
              if(err) return reject(err);
-             console.log(words);
              resolve(words);
         });
 

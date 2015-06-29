@@ -30,7 +30,7 @@ $(function() {
         getData(function(words) {
             
             // Oooo these linear scale functions are nice :D
-            var wordScale = d3.scale.linear().domain([0,20]).range([10,160]);
+            var wordScale = d3.scale.linear().domain([0,6]).range([30,120]);
             var wordRotate = d3.scale.linear().domain([0,1]).range([-20,20]);
             
             d3.layout.cloud()

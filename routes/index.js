@@ -39,9 +39,7 @@ router.get('/admin/questions', function(req, res, next){
                     questions.push(data[i]);
                 }
             }
-
-            console.log(questions)
-
+            
             res.render('question-list', {
                 title: 'Express',
                 enabelBackToHome:true,
