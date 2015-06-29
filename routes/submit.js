@@ -25,7 +25,7 @@ function validateWords(words){
     return words
         .split(' ')
         .filter(function(word){
-            return filteredWords.indexOf(word) == -1;
+            return filteredWords.toLowerCase().indexOf(word) == -1;
         })
         .filter(function(word){ return word.length; })
         .map(function(word) { return { word: word }; });
