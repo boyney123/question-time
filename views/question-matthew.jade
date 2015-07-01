@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    img(src="/assets/bunting.png")
+    div.row
+        div.small-12.columns
+
+            p Please enter the question you would like to ask and hit submit.
+
+            form(action="/submit/question-matthew", method="POST")
+                label Question:
+                textarea(name='question')
+
+                input.button.expand.bake-green(type='submit', value='Submit')
+
+

@@ -6,6 +6,7 @@ block content
             div.small-12.columns
                 form(action="/question/delete/#{val._id}", method="POST")
                     i.fa.fa-question-circle
-                    span #{val.question}
+                    span(class="#{val.who}" style="text-transform:capitalize") #{val.who}
+                    span - #{val.question}
                     input(type='submit', value='X')
 

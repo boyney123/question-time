@@ -5,7 +5,8 @@ var db = require('../db');
 router.post('/question', function(req, res, next) {
   
   var question = {
-    question: req.body.question
+    question: req.body.question,
+    who: 'paul'
   };
   
   db.questions.insert(question, function(err, result) {
@@ -17,6 +18,24 @@ router.post('/question', function(req, res, next) {
   });
   
 });
+
+router.post('/question-matthew', function(req, res, next) {
+  
+  var question = {
+    question: req.body.question,
+    who: 'matthew'
+  };
+  
+  db.questions.insert(question, function(err, result) {
+    if (err) {
+        res.render('error');
+    } else {
+      res.redirect('/');
+    }
+  });
+  
+});
+
 
 function validateWords(words){
 
